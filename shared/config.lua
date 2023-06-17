@@ -1,5 +1,3 @@
-ESX = exports['es_extended']:getSharedObject()
-
 Config = {
 
     MaxDistance = 5.0,
