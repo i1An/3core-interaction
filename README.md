@@ -42,6 +42,8 @@ exports['3core-interaction']:AddEntityBone({
                 Type = '',
                 # Event / command name.
                 Value = '',
+                # Event arguments (optional)
+                Args = {  },
                 # Close the menu when clicked.
                 Close = true 
             }
@@ -65,6 +67,8 @@ exports['3core-interaction']:AddEntityBone({
                         Type = '',
                         # Event / command name.
                         Value = '',
+                        # Event arguments (optional)
+                        Args = {  },
                         # Close the menu when clicked.
                         Close = true 
                     }
@@ -97,6 +101,8 @@ exports['3core-interaction']:AddPedBone({
                 Type = '',
                 # Event / command name.
                 Value = '',
+                # Event arguments (optional)
+                Args = {  },
                 # Close the menu when clicked.
                 Close = true 
             }
@@ -120,6 +126,8 @@ exports['3core-interaction']:AddPedBone({
                         Type = '',
                         # Event / command name.
                         Value = '',
+                        # Event arguments (optional)
+                        Args = {  },
                         # Close the menu when clicked.
                         Close = true 
                     }
@@ -152,6 +160,8 @@ exports['3core-interaction']:AddProp({
                 Type = '',
                 # Event / command name.
                 Value = '',
+                # Event arguments (optional)
+                Args = {  },
                 # Close the menu when clicked.
                 Close = true 
             }
@@ -175,6 +185,8 @@ exports['3core-interaction']:AddProp({
                         Type = '',
                         # Event / command name.
                         Value = '',
+                        # Event arguments (optional)
+                        Args = {  },
                         # Close the menu when clicked.
                         Close = true 
                     }
@@ -207,6 +219,8 @@ exports['3core-interaction']:AddEntity({
                 Type = '',
                 # Event / command name.
                 Value = '',
+                # Event arguments (optional)
+                Args = {  },
                 # Close the menu when clicked.
                 Close = true 
             }
@@ -230,6 +244,8 @@ exports['3core-interaction']:AddEntity({
                         Type = '',
                         # Event / command name.
                         Value = '',
+                        # Event arguments (optional)
+                        Args = {  },
                         # Close the menu when clicked.
                         Close = true 
                     }
