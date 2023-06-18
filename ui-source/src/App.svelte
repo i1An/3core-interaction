@@ -33,9 +33,11 @@
         });
         jquery('.wrapper').on('contextmenu', function(event) {
             jquery['post']('https://3core-interaction/startInteraction', JSON.stringify({}));
+            if (jquery(event.target).closest('.item').length) return;
             OffsetX = event.offsetX;
             OffsetY = event.offsetY;
             ShowInteraction = false;
+            InteractionData = null;
             CanOpenSubMenu = true;
             ActiveSubMenus = [ ];
             ActiveSubSubMenus = [ ];
@@ -161,7 +163,8 @@
         <div class="interaction" id="main" style="top: {OffsetY}px; left: {OffsetX}px">
             {#each InteractionData as Item, Index}
                 {#if Item['Title'] != undefined}
-                    <div class={ Item['SubMenu'] || Item['OnClick'] ? 'item hover' : 'item' } on:mousedown={() => GenerateSubMenu(Item, Index)}>
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <div class={ Item['SubMenu'] || Item['OnClick'] ? 'item hover' : 'item' } on:click={() => GenerateSubMenu(Item, Index)}>
                         {#if Item['Image']}
                             <img alt="" src={Item['Image']}>
                         {/if}
