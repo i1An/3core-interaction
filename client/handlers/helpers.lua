@@ -1,19 +1,12 @@
 Helpers = {
 
-    CopyTable = function(orig, copies)
-        copies = copies or {}
+    CopyTable = function(orig)
         local orig_type = type(orig)
         local copy
         if orig_type == 'table' then
-            if copies[orig] then
-                copy = copies[orig]
-            else
-                copy = {}
-                copies[orig] = copy
-                for orig_key, orig_value in next, orig, nil do
-                    copy[Helpers.CopyTable(orig_key, copies)] = Helpers.CopyTable(orig_value, copies)
-                end
-                setmetatable(copy, Helpers.CopyTable(getmetatable(orig), copies))
+            copy = { }
+            for orig_key, orig_value in pairs(orig) do
+                copy[orig_key] = orig_value
             end
         else
             copy = orig
@@ -28,19 +21,17 @@ Helpers = {
                 if tempTable[oIndex].SubMenu then
                     tempTable[oIndex].SubMenu = Helpers.GenerateData(tempTable[oIndex].SubMenu)
                 end
-                if tempTable[oIndex].CanShow then
-                    if not tempTable[oIndex].CanShow() then
-                        tempTable[oIndex] = { }
-                    end
-                    if tempTable[oIndex] then
-                        tempTable[oIndex].CanShow = ''
-                    end
+                if tempTable[oIndex].CanShow and not tempTable[oIndex].CanShow() then
+                    tempTable[oIndex] = { }
+                end
+                if type(tempTable[oIndex].CanShow) == 'function' then
+                    tempTable[oIndex].CanShow = nil
                 end
             end
         end
         return tempTable
     end,
-
+    
     CheckIfDuplicate = function(cType, value)
         for key, interaction in pairs(Config.DefaultInteractions) do
             if interaction.Info.Type == cType then
